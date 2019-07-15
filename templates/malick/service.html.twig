@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+{% form_theme formService 'bootstrap_4_layout.html.twig' %}
+
+
+{% block body %}
+    <div class="col-sm-5" style=" margin-left: auto;
+                        margin-right: auto;">
+
+        <h1>ajouter un service</h1>
+
+
+        {{ form_start(formService) }}
+
+        {{ form_row(formService.libelle, {'attr':{'placeholder':"type de service"}}) }}
+
+        {{ form_end(formService) }}
+
+
+    </div>
+
+    {% for message in app.flashes ('danger') %}
+        <div class="alert alert-danger col-sm-5" style=" margin-left: auto;
+                                margin-right: auto; text-align:center">
+            {{ message}}
+        </div>
+
+
+    {% endfor %}
+
+
+
+{% endblock %}

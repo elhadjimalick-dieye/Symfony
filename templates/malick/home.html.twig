@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
+
+
+{% block body %}
+ {% for message in app.flashes ('success') %}
+ <div class="alert alert-success col-sm-5" style="margin-left: auto; margin-right:auto">
+    {{ message}}
+    </div>
+{% endfor %} 
+<br>
+            <button class="btn btn-success ajouter " style="float:left"><a href="{{path('service')}}" style="color:white">ajouter
+                    service</a></button>
+
+<div class="col-sm-5" style=" margin-left: auto;
+    margin-right: auto;">
+
+
+
+    {% if editmode %}
+    <h3>modifier employé</h3>
+{% else %}
+    <h3  class="col-sm-8" style=" margin-left: auto;
+    margin-right: auto;">Ajouter employé</h3>
+{% endif %}
+
+    {{ form_start(formArticle) }}
+
+    {{ form_row(formArticle.matricule, {'attr':{'placeholder':"Matricule"}}) }}
+
+    {{ form_row(formArticle.nomcomplet, {'attr':{'placeholder':"Nom complet"}}) }}
+
+    {{ form_row(formArticle.datedenaissance, {'attr':{'placeholder':"date de naissance"}}) }}
+
+    {{ form_row(formArticle.salaire, {'attr':{'placeholder':"salaire"}}) }}
+
+{#     {{ form_row(formArticle.service, {'attr':{'placeholder':"#"}}) }}
+ #}
+
+
+
+
+
+    {{ form_end(formArticle) }}
+</div>
+
+
+{% endblock %}
